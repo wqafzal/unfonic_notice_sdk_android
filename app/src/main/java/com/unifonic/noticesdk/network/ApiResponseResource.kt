@@ -1,11 +1,11 @@
-package com.droidmech.attandanceutility.network
+package com.unifonic.noticesdk.network
 
 
 import androidx.annotation.Nullable
-import com.droidmech.attandanceutility.network.Status.ERROR
-import com.droidmech.attandanceutility.network.Status.LOADING
-import com.droidmech.attandanceutility.network.Status.NO_MORE_ITEM
-import com.droidmech.attandanceutility.network.Status.SUCCESS
+import com.unifonic.noticesdk.network.Status.ERROR
+import com.unifonic.noticesdk.network.Status.LOADING
+import com.unifonic.noticesdk.network.Status.NO_MORE_ITEM
+import com.unifonic.noticesdk.network.Status.SUCCESS
 
 
 class ApiResponseResource<T> private constructor(val status: Int, @param:Nullable @field:Nullable val message: String?) {

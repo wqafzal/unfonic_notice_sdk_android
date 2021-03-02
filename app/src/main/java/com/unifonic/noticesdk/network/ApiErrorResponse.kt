@@ -1,4 +1,4 @@
-package com.droidmech.attandanceutility.network
+package com.unifonic.noticesdk.network
 
 
 import com.google.gson.JsonParser
@@ -19,7 +19,7 @@ class ApiErrorResponse constructor(error: Throwable) {
                         ?.errorBody()?.string()
 
                     this.message = JsonParser().parse(errorJsonString)
-                        .asJsonObject["errorMessage"]
+                        .asJsonObject["error"]
                         .asString
 
                 }catch (exception:Exception){

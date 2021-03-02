@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1006462652283",
+    "project_id": "unifonic-abf4e",
+    "storage_bucket": "unifonic-abf4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006462652283:android:ec82905f1b3566421bf7de",
+        "android_client_info": {
+          "package_name": "com.unifonic.noticesdk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006462652283-hdih9lahq9f92mnpsdf0982qvb6dm1b1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFFCa058j6xxbhvqAUrt7ELYSjXu3Pha4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006462652283-hdih9lahq9f92mnpsdf0982qvb6dm1b1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

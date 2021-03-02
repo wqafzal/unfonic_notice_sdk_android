@@ -1,4 +1,4 @@
-package com.droidmech.attandanceutility.network
+package com.unifonic.noticesdk.network
 
 
 object Status {

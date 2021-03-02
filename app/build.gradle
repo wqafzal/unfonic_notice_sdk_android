@@ -15,6 +15,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -36,47 +37,47 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    flavorDimensions "backend"
 
     productFlavors {
 
         Production {
 
             dimension "backend"
-            def domainName = "api.brisk.delivery/api/v1"
+            def domainName = "staging.notice.api.dev.unifonic.com/devices/api"
+            def apiVersion = "v1"
 
             buildConfigField "boolean", "enabledLogging", "false"
             buildConfigField "boolean", "useCachedData", "false"
-            buildConfigField "String", "BASE_URL", "\"https://${domainName}/\""
+            buildConfigField "String", "BASE_URL", "\"https://${domainName}/${apiVersion}/\""
             versionCode = project.getVersionCode()
             versionName = getFormattedDate()
         }
 
         Staging {
             dimension "backend"
-            def domainName = "staging.brisk.delivery/api/v1"
+            def domainName = "staging.notice.api.dev.unifonic.com/devices/api"
+            def apiVersion = "v1"
 
             applicationIdSuffix ".staging"
 
-            resValue "string", "app_name", '"Brisk stag"'
-
             buildConfigField "boolean", "enabledLogging", "true"
             buildConfigField "boolean", "useCachedData", "false"
-            buildConfigField "String", "BASE_URL", "\"https://${domainName}/\""
+            buildConfigField "String", "BASE_URL", "\"https://${domainName}/${apiVersion}/\""
             versionCode = project.getVersionCode()
             versionName = getFormattedDate()
         }
 
         Development {
             dimension "backend"
-            def domainName = "staging.brisk.delivery/api/v1"
+            def domainName = "staging.notice.api.dev.unifonic.com/devices/api"
+            def apiVersion = "v1"
 
             applicationIdSuffix ".dev"
 
-            resValue "string", "app_name", '"Brisk dev"'
-
             buildConfigField "boolean", "enabledLogging", "true"
             buildConfigField "boolean", "useCachedData", "false"
-            buildConfigField "String", "BASE_URL", "\"https://${domainName}/\""
+            buildConfigField "String", "BASE_URL", "\"https://${domainName}/${apiVersion}/\""
             buildConfigField "String", "appCenterAppSecret", "\"75cebf28-3ac4-4ad0-ac04-80b76c16b888\""
             versionCode = project.getVersionCode()
             versionName = getFormattedDate()
@@ -98,6 +99,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.google.android.material:material:1.3.0'
 
+    def multidex_version = "2.0.1"
+    implementation "androidx.multidex:multidex:$multidex_version"
+
+    //viewmodel kx
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0'
+
     // retrofit
 
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
@@ -111,7 +120,20 @@ dependencies {
     //glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+    // Declare the dependencies for the Crashlytics and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-config'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
 }
+
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 static def getFormattedDate() {
     def date = new Date()

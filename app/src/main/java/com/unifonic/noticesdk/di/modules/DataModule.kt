@@ -1,7 +1,7 @@
 package com.unifonic.noticesdk.di.modules
 
 
-import com.unifonic.noticesdk.network.rest.SMSService
+import com.unifonic.noticesdk.network.rest.UnifonicNotificationService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -15,8 +15,8 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun getHomeService(@Named(RetrofitModule.PUBLIC_CLIENT) retrofit: Retrofit): SMSService {
-        return retrofit.create(SMSService::class.java)
+    fun getHomeService(@Named(RetrofitModule.PUBLIC_CLIENT) retrofit: Retrofit): UnifonicNotificationService {
+        return retrofit.create(UnifonicNotificationService::class.java)
     }
 
 }
