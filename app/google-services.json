@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1006462652283",
-    "project_id": "unifonic-abf4e",
-    "storage_bucket": "unifonic-abf4e.appspot.com"
+    "project_number": "213079669323",
+    "project_id": "fcmtestapp-2e2e9",
+    "storage_bucket": "fcmtestapp-2e2e9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1006462652283:android:ec82905f1b3566421bf7de",
+        "mobilesdk_app_id": "1:213079669323:android:261bcdf3f120c97d24ebce",
         "android_client_info": {
-          "package_name": "com.unifonic.noticesdk"
+          "package_name": "octek.push.notify"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1006462652283-hdih9lahq9f92mnpsdf0982qvb6dm1b1.apps.googleusercontent.com",
+          "client_id": "213079669323-5j2ojsl75er5cmp8oeg1lg8o2tlef00s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAFFCa058j6xxbhvqAUrt7ELYSjXu3Pha4"
+          "current_key": "AIzaSyD3NIu9tFrZaQFWj9kQ7pJOIWujKEK7bc4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1006462652283-hdih9lahq9f92mnpsdf0982qvb6dm1b1.apps.googleusercontent.com",
+              "client_id": "213079669323-5j2ojsl75er5cmp8oeg1lg8o2tlef00s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
