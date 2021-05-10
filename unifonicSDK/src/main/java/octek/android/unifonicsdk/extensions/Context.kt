@@ -1,29 +1,16 @@
-package com.unifonic.noticesdk.extensions
+package octek.android.unifonicsdk.extensions
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
-import android.graphics.Color
-import androidx.annotation.StringRes
-import com.unifonic.noticesdk.R
 
 const val IDENTIFIER = "Identifier"
 const val APP_ID = "app_id"
 const val USER_PREFERENCES = "user_preferences"
 const val SDK_TOKEN = "sdk_token"
-const val BASE_URL = "base_url"
 const val FIREBASE_TOKEN = "firebase_token"
 const val OLD_FIREBASE_TOKEN = "old_firebase_token"
 const val FIREBASE_TOKEN_REGISTERED = "FIREBASE_TOKEN_REGISTERED"
 const val FIREBASE_NOTIFICATION_DISABLED = "FIREBASE_NOTIFICATION_DISABLED"
-
-fun Context.getBaseUrl(): String? {
-    return userPreferences().getString(BASE_URL, null)
-}
-
-fun Context.saveBaseUrl(url: String) {
-    userPreferences().edit().putString(BASE_URL, url).apply()
-}
 
 fun Context.userPreferences(): SharedPreferences {
     return getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE)
@@ -89,66 +76,9 @@ fun Context.notificationsDisableStatusNotified(boolean: Boolean) {
     userPreferences().edit().putBoolean(FIREBASE_NOTIFICATION_DISABLED, boolean).apply()
 }
 
-fun Context.isNotificationsDisableStatusNotified(): Boolean {
+fun Context.isNotificationsDisableStatusNotified() : Boolean{
     return userPreferences().getBoolean(FIREBASE_NOTIFICATION_DISABLED, false)
 }
-
-
-fun Context.showDialog(
-    @StringRes title: Int,
-    @StringRes message: Int,
-    positiveButtonText: String,
-    onPositive: (() -> Unit)? = null,
-    negativeButtonText: String? = null,
-    onNegative: (() -> Unit)? = null, cancelable: Boolean = true
-) {
-    val dialog = AlertDialog.Builder(this).apply {
-        setIcon(R.mipmap.ic_launcher_round)
-        setMessage(message)
-            .setPositiveButton(
-                positiveButtonText
-            ) { _, _ ->
-                onPositive?.invoke()
-            }
-        if (negativeButtonText != null)
-            setNegativeButton(
-                negativeButtonText
-            ) { _, _ ->
-                onNegative?.invoke()
-            }
-        setTitle(title)
-        setCancelable(cancelable)
-    }.show()
-    dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.RED)
-    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLUE)
-}
-
-
-fun Context.showDialog(
-    @StringRes title: Int,
-    message: String,
-    positiveButtonText: String,
-    onPositive: (() -> Unit)? = null,
-    negativeButtonText: String? = null,
-    onNegative: (() -> Unit)? = null, cancelable: Boolean = true
-) {
-    val dialog = AlertDialog.Builder(this).apply {
-        setIcon(R.mipmap.ic_launcher_round)
-        setMessage(message)
-            .setPositiveButton(
-                positiveButtonText
-            ) { _, _ ->
-                onPositive?.invoke()
-            }
-        if (negativeButtonText != null)
-            setNegativeButton(
-                negativeButtonText
-            ) { _, _ ->
-                onNegative?.invoke()
-            }
-        setTitle(title)
-        setCancelable(cancelable)
-    }.show()
-    dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.RED)
-    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLUE)
+fun Context.reset(){
+    return userPreferences().edit().clear().apply()
 }

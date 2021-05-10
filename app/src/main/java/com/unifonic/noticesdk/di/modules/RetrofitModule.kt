@@ -3,9 +3,8 @@ package com.unifonic.noticesdk.di.modules
 
 import com.unifonic.noticesdk.AndroidApp
 import com.unifonic.noticesdk.BuildConfig
-import com.unifonic.noticesdk.extensions.getAppId
-import com.unifonic.noticesdk.extensions.getIdentifier
-import com.unifonic.noticesdk.extensions.getSdkToken
+import octek.android.unifonicsdk.extensions.getAppId
+import octek.android.unifonicsdk.extensions.getSdkToken
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor

@@ -1,4 +1,4 @@
-package com.unifonic.noticesdk.models
+package octek.android.unifonicsdk.models
 
 import com.google.gson.annotations.SerializedName
 
